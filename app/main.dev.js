@@ -10,8 +10,15 @@
  *
  * @flow
  */
-import { app, BrowserWindow } from 'electron';
-import MenuBuilder from './menu';
+import { app, BrowserWindow, ipcMain } from 'electron'
+import MenuBuilder from './menu'
+
+// Event bus configuration
+import eventBus from '../engine/eventBus/eventBus.init'
+import ipcLayer from './ipc.events'
+eventBus.init()
+ipcLayer.init(eventBus.interface.events)
+const frontendEvents = ipcLayer.eventsList
 
 let mainWindow = null;
 
@@ -74,6 +81,7 @@ app.on('ready', async () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
+    mainWindow.webContents.send('eventsList', frontendEvents)
     mainWindow.show();
     mainWindow.focus();
   });

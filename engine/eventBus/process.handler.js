@@ -1,3 +1,6 @@
+
+// Usage:
+// processHandler.methods.createProcess('npm', ['run', 'dev'], 'test pipe');
 const { spawn } = require('child_process');
 
 function handleProcessEvents(child, pipe) {

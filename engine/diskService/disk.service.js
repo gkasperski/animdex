@@ -9,7 +9,6 @@ const writeFile = promisify(fs.writeFile)
 
 const service = {
   'readDir': (path) => {
-    console.log('path',path)
     console.log('[DEV]diskService|readDir|NOT YET IMPLEMENTED')
     return {
       err: '',
