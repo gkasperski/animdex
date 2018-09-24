@@ -1,7 +1,5 @@
 import React from 'react';
 
-export const Scenarios = () => (
-  <div>
-    Test
-  </div>
-)
+const Scenarios = () => <div>Test</div>;
+
+export default Scenarios;
