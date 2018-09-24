@@ -3,11 +3,14 @@ import * as React from 'react'
 
 // this should go to the redux layer, here just to check it out
 import {ipcRenderer} from 'electron'
-let eventsList = []
 
 type Props = {
   children: React.Node
 };
+
+ipcRenderer.on('diskEvents/READ_DIR/RESPONSE', (event, message) => {
+  console.log('READ_DIR/RESPONSE', message)
+})
 
 export default class App extends React.Component {
   constructor(props) {

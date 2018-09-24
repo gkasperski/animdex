@@ -20,11 +20,20 @@ function makePools(busEvents) {
 }
 
 function initPool(pool) {
-  const eventNames = Object.keys(pool.events)
+  const eventNames = []
+  Object.keys(pool.events).forEach((name, index) => {
+    eventNames.push(name, `${name}/RESPONSE`)
+  })
   eventNames.forEach( (name, index) => {
-    pool.on(name, (...args) => {
-      const eventMethod = Object.values(pool.events)[index]
-      eventMethod(...args)
+    pool.on(name, async (...args) => {
+      try {
+        const eventMethod = Object.values(pool.events)[index]
+        const {err, output} = await eventMethod(...args)
+        output && pool.emit(`${name}/RESPONSE`, output)
+        
+      } catch(e) {
+        console.log('[ERROR]|eventBus|initPool| ',e)
+      }
     });
   } )
 }

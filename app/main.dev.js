@@ -20,7 +20,7 @@ eventBus.init()
 ipcLayer.init(eventBus.interface.events)
 const frontendEvents = ipcLayer.eventsList
 
-let mainWindow = null;
+export let mainWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

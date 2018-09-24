@@ -1,13 +1,23 @@
 import { app, ipcMain } from 'electron'
+import { mainWindow } from './main.dev'
 
 const ipcEvents = []
 
+// TODO: Build in INFO LOG
+
 function generateIpcEvents(emitter, events) {
   Object.keys(events).forEach(( eventName, index ) => {
+    const responseName = `${eventName}/RESPONSE`
     const ipcEventName = `${emitter.name}/${eventName}`
-    ipcEvents.push(ipcEventName)
+    const ipcResponseName = `${emitter.name}/${responseName}`
+    ipcEvents.push(ipcEventName, responseName)
+
     ipcMain.on(ipcEventName, (event, ...args) => {
       emitter.emit(eventName, ...args)
+    })
+
+    emitter.on(responseName, (event, ...args) => {
+      mainWindow.webContents.send(ipcResponseName, event)
     })
   })
 }

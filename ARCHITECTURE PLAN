@@ -1,0 +1,15 @@
+Frontend:
+collections handling:
+  -create new
+  -edit item
+  -update item
+  -update whole
+  -get item
+  -get whole
+  -get range
+  -clear all
+  -get existing collection and initialize them (scaffold actions)
+Backend:
+  -write to file
+  -read from file
+  -check files exists
