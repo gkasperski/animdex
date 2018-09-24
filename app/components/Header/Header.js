@@ -1,22 +1,19 @@
 import React from 'react';
+import Navigation from './Navigation/Navigation';
+import Version from './Version/Version';
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
+import styles from './Header.scss';
 
-export const Header = () => (
-  <React.Fragment>
-    <nav className="navigation">
-      <div className="nav-button">
+const Header = () => (
+  <div className={styles.headerContainer}>
+    <header className={styles.header}>
+      <Navigation />
+      <div className={styles.rightSide}>
+        <Version />
+        <LanguageSwitcher />
       </div>
-      <div className="nav-button">
+    </header>
+  </div>
+);
 
-      </div>
-      <div className="nav-button">
-
-      </div>
-    </nav>
-    <div className="version">
-
-    </div>
-    <div className="language-switcher">
-
-    </div>
-  </React.Fragment>
-)
+export default Header;

@@ -1,0 +1,27 @@
+@import '../../../../styles.global/_colors.scss';
+@import '../../../../styles.global/_mixins.scss';
+
+.navButton {
+  display: flex;
+  position: relative;
+  height: 100%;
+  padding: 0 1rem;
+  align-items: center;
+  font-family: 'Poppins';
+  color: #b6b6b6;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  @include disableUserSelect;
+  
+
+  &.active {
+    color: white;
+    background-color: $contrast-active;
+  }
+
+  &:hover {
+    background-color: $dark-active;
+  }
+}

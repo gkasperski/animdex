@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Scenarios } from '../components/Scenarios/Scenarios';
+import Scenarios from '../../components/Scenarios/Scenarios';
 
 type Props = {};
 

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  position: relative;
+  background-color: #545454;
+  color: white;
+  height: 2rem;
+  padding: 0 1rem;
+  box-shadow: 0 2px 0 0;
+  box-sizing: border-box;
+}
+
+.rightSide {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  height: 100%;
+}

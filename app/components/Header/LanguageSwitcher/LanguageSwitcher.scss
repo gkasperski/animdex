@@ -1,0 +1,13 @@
+@import '../../../styles.global/_colors.scss';
+
+
+.languagesBar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .active {
+    color: #b6b6b6;
+    background-color: $dark-active;
+  }
+}
