@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import { Header } from '../components/Header/Header';
 
 // this should go to the redux layer, here just to check it out
 import {ipcRenderer} from 'electron'
@@ -34,9 +35,14 @@ export default class App extends React.Component {
 
   render() {
   return (
-    <div>
-      <button onClick={() => this.handleTestButton()}>CLICK</button>
-      {this.props.children}
+    <div className="container">
+      <header className="header">
+        <Header />
+      </header>
+      <main className="content">
+        <button onClick={() => this.handleTestButton()}>CLICK</button>
+        {this.props.children}
+      </main>
     </div>
   )
   }
